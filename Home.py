@@ -1,15 +1,7 @@
 import streamlit as st
 import nltk
 
-def main():
-  
-  d = nltk.downloader.Downloader()
-
-  for pkg in d.packages():
-      if not d.is_installed(pkg.id):
-          nltk.download('all')
-          break
-          
+def main():         
   st.write("Name: Fredin Johns")
   st.write("Roll No: 2347116")
 
