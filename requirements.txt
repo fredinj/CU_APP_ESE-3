@@ -1,6 +1,6 @@
 streamlit
 matplotlib
 pandas
-opencv-python
+opencv-python-headless
 nltk
 scikit-learn
