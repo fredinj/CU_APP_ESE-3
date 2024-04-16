@@ -24,6 +24,8 @@ def grayscale_image():
     image_copy = np.copy(image)  
     gray_image = cv2.cvtColor(image_copy, cv2.COLOR_BGR2GRAY)
     if st.sidebar.button('Display Grayscale Image'):  
+      st.markdown("<br>", unsafe_allow_html=True)
+      st.header("Grayscale Image")
       st.image(gray_image, channels="GRAY")
 
 def crop_image():
@@ -39,8 +41,11 @@ def crop_image():
     bottom = st.sidebar.slider('Bottom', 0, height, height)
 
     if st.sidebar.button('Display Cropped Image'):
-        cropped_image = image_copy[top:bottom, left:right]
-        st.image(cropped_image, channels="BGR")
+        
+      st.markdown("<br>", unsafe_allow_html=True)
+      st.header("Cropped Image")
+      cropped_image = image_copy[top:bottom, left:right]
+      st.image(cropped_image, channels="BGR")
 
 def rotate_image():
     global selected_image
@@ -50,11 +55,14 @@ def rotate_image():
     angle = st.sidebar.slider('Angle', 0, 360, 0)
 
     if st.sidebar.button('Display Rotated Image'):
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.header("Rotated Image")
         M = cv2.getRotationMatrix2D((image_copy.shape[1] / 2, image_copy.shape[0] / 2), angle, 1)
         rotated_image = cv2.warpAffine(image_copy, M, (image_copy.shape[1], image_copy.shape[0]))
         st.image(rotated_image, channels="BGR")
 
 def resize_image():
+
     global selected_image
     image = cv2.imread(selected_image + ".jpg")
     image_copy = np.copy(image)  
@@ -63,6 +71,8 @@ def resize_image():
     height = st.sidebar.slider('Height', 0, image_copy.shape[0], image_copy.shape[0])
 
     if st.sidebar.button('Display Resized Image'):
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.header("Resized Image")
         resized_image = cv2.resize(image_copy, (width, height))
         st.image(resized_image, channels="BGR")
 
