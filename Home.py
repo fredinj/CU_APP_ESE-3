@@ -9,4 +9,4 @@ def main():
 if __name__ == "__main__":
   main()
   st.title('Home')
-  st.write('Welcome to the home page!')
+  st.write('Use the sidebar to navigate different modules')
